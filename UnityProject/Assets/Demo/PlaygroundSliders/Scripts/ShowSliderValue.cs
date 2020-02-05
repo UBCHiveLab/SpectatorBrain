@@ -6,6 +6,7 @@ using Microsoft.MixedReality.Toolkit.UI;
 
 public class ShowSliderValue : MonoBehaviour
 {
+    
     [SerializeField]
     private TextMeshPro textMeshPro = null;
     private void Start()

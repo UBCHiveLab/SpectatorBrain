@@ -83,17 +83,21 @@ namespace HoloToolkit.Unity
         {
             clipPlaneID = Shader.PropertyToID("_ClipPlane");
 
-            materials = new Material[renderers.Length];
-
-            for (int i = 0; i < renderers.Length; ++i)
+            if(renderers != null)
             {
-                if (Application.isPlaying)
+
+                materials = new Material[renderers.Length];
+
+                for (int i = 0; i < renderers.Length; ++i)
                 {
-                    materials[i] = renderers[i].material;
-                }
-                else
-                {
-                    materials[i] = renderers[i].sharedMaterial;
+                    if (Application.isPlaying)
+                    {
+                        materials[i] = renderers[i].material;
+                    }
+                    else
+                    {
+                        materials[i] = renderers[i].sharedMaterial;
+                    }
                 }
             }
 
