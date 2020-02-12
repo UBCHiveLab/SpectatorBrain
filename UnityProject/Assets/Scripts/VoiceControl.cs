@@ -3,20 +3,25 @@
 
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.Windows.Speech;
+// using UnityEngine.Windows;
+// using UnityEngine.Windows.Speech;
+
+
 using System.Linq;
 using System;
 using HoloToolkit.Unity.InputModule;
 using HolobrainConstants;
 using UnityEngine.EventSystems;
 
+
 public class VoiceControl : MonoBehaviour {
     private GameObject brain;
     private GameObject controlsUI;
     private HTGazeManager gazeManager;
 
-    private KeywordRecognizer keywordRecognizer;
+    //private KeywordRecognizer keywordRecognizer;
     private Dictionary<string, Action> voiceRecognitionKeywords;
     private Dictionary<string, GameObject> buttonActionsToGameObjectName;
     private EventSystem eventSystem;
@@ -165,24 +170,24 @@ public class VoiceControl : MonoBehaviour {
 
         // voiceRecognitionKeywords.Add("Locate", HandleCommand(GameObject.Find(buttonActionsToGameObjectName["Locate"])));
 
-        keywordRecognizer = new KeywordRecognizer(voiceRecognitionKeywords.Keys.ToArray());
-        keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
-        keywordRecognizer.Start();
+       // keywordRecognizer = new KeywordRecognizer(voiceRecognitionKeywords.Keys.ToArray());
+       // keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
+       // keywordRecognizer.Start();
 	}
 
-    private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
-    {
-        Action keywordAction;
-        if (voiceRecognitionKeywords.TryGetValue(args.text, out keywordAction))
-        {
-            Debug.Log("voice keyword: " + args.text);
-
-            if (brain != null)
-            {
-                if (!brain.GetComponent<StateAccessor>().CurrentlyInStudentMode()) keywordAction.Invoke();
-            }
-        }               
-    }
+    //private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
+    //{
+     //   Action keywordAction;
+     //   if (voiceRecognitionKeywords.TryGetValue(args.text, out keywordAction))
+     //   {
+    //        Debug.Log("voice keyword: " + args.text);
+    //
+     //       if (brain != null)
+     //       {
+     //           if (!brain.GetComponent<StateAccessor>().CurrentlyInStudentMode()) keywordAction.Invoke();
+     //       }
+     //   }               
+    //}
 
     private void executeClick(GameObject g)
     {
@@ -327,3 +332,4 @@ public class VoiceControl : MonoBehaviour {
         //GameObject.Find(buttonActionsToGameObjectName["End Tutorial"]).GetComponent<ButtonCommands>().OnInputClicked(new InputClickedEventData(eventSystem));
     }
 }
+

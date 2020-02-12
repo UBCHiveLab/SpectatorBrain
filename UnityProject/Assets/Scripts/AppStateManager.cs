@@ -2,6 +2,8 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 ﻿using UnityEngine;
+
+
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.SpatialMapping;
 using System;
@@ -96,3 +98,4 @@ public class AppStateManager : Singleton<AppStateManager>
         }
     }
 }
+

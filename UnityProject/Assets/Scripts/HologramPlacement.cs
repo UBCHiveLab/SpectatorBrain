@@ -3,7 +3,7 @@
 
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Windows.Speech;
+
 using UnityEngine.SceneManagement;
 using HoloToolkit.Unity;
 using HoloToolkit.Unity.InputModule;
@@ -150,13 +150,13 @@ public class HologramPlacement : Singleton<HologramPlacement>, IInputClickHandle
         {
             if (disabledRenderers.Count > 0)
             {
-                if (ImportExportAnchorManager.Instance.AnchorEstablished)
-                {
+                //if (ImportExportAnchorManager.Instance.AnchorEstablished)
+                //{
                     // After which we want to start rendering.
-                    EnableModel();
+                //    EnableModel();
                     //mriManager.UpdateClippingForRepositioning(GotTransform);
-                    ShowUI();
-                }
+                //    ShowUI();
+                //}
             }
             else if (!GotTransform)
             {
@@ -245,10 +245,10 @@ public class HologramPlacement : Singleton<HologramPlacement>, IInputClickHandle
 
         GotTransform = true;
         //mriManager.UpdateClippingForRepositioning(GotTransform);
-        if (ImportExportAnchorManager.Instance.AnchorEstablished)
-        {
-            ShowUI();
-        }
+        //if (ImportExportAnchorManager.Instance.AnchorEstablished)
+        //{
+         //   ShowUI();
+       // }
     }
 
     /// <summary>
